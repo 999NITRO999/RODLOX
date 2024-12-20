@@ -66,25 +66,21 @@
         }
 
         /* تنسيق الزر */
-        button {
+        #login-btn {
+            display: inline-block;
             padding: 10px 20px;
             background-color: #0066cc;
             color: #fff;
-            border: none;
+            text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             transition: all 0.3s ease;
-            width: 100%;
         }
 
-        button:hover {
+        #login-btn:hover {
             background-color: #005bb5;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        button:active {
-            transform: scale(0.98);
         }
     </style>
 </head>
@@ -102,7 +98,7 @@
                     <input type="password" id="password" required>
                     <label>Password</label>
                 </div>
-                <button type="button" id="login-btn">Submit</button> 
+                <a href="#" id="login-btn">Submit</a> 
             </form>
         </div>
     </div>
